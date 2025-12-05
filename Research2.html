@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hinde Lab at Unimelb</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================
+       GLOBAL STYLES
+    ============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+    }
+
+
+    /* =============================
+       HEADER (Fixed)
+    ============================== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #000;
+      padding: 20px 50px;
+      position: fixed;        /* fixed at top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;          /* stays above everything */
+    }
+
+    /* Left side: logo + lab title */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .top-logo {
+      height: 48px;
+      width: auto;
+    }
+
+    .lab-title {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* Navigation links */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #007acc;
+      text-decoration: underline;
+    }
+
+
+    /* =============================
+       BANNER SECTION
+    ============================== */
+    .banner-section {
+      padding-top: 0px; /* creates space below header but keeps it black */
+      margin-top: 80px; /* prevents white gap */
+      width: 100%;
+      background-color: #000;
+      text-align: center;
+      overflow: hidden;
+  position: relative;
+
+    }
+
+    /* --- Top image (narrower vertically) --- */
+    .banner-image {
+      width: 100%;
+      height: 30vh; /* reduced height so it looks elegant and not too tall */
+      position: relative;
+      overflow: hidden;
+    }
+
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* ensures it fills space perfectly */
+  object-position: center;
+  display: block;
+}
+
+/* =============================
+   RESEARCH TITLE ABOVE BANNER
+============================= */
+/* Text overlay */
+.banner-text {
+  position: absolute;
+  top: 50%;               /* centers vertically */
+  left: 50%;              /* centers horizontally */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.banner-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUpResearch 1.3s ease-out forwards;
+  animation-delay: 0.4s;  /* optional delay so it feels smoother */
+}
+
+@keyframes fadeUpResearch {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* 👇 NEW: make the background after the banner fully white */
+.banner-section + .research-section,
+.banner-section + * {
+  background-color: #fff !important;
+}
+
+    /* research ection */
+
+.research-section {
+    max-width: 1150px; /* Increase width */
+    margin: auto; /* Center the section */
+    padding: 0 20px; /* Reduce side padding */
+   background-color: #fff;
+    color: #333;
+    max-width: 1150px;
+    margin: auto;
+}
+
+
+        .research-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #000;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            text-align: justify; /* Justifies the text */
+
+        }
+
+
+        .content {
+            margin-top: 30px;
+        }
+
+        .text-section {
+            max-width: 60%;
+        }
+
+        .bold-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 20px;
+
+        }
+
+.research-grid {
+  display: flex;
+  justify-content: flex-start; /* align to the same left margin as text */
+  align-items: flex-start;
+  gap: 50px; /* space between image and publication box */
+  margin-top: 30px;
+  max-width: 100%; /* ensures it fits inside section width */
+}
+
+/* --- IMAGE SIDE --- */
+.research-left {
+  flex: none;
+  width: 520px;              /* same width as publication box */
+  height: 430px;             /* 👈 restrict total image area height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;          /* hides anything that goes beyond the box */
+  border-radius: 10px;
+}
+
+.research-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* keeps proportions inside fixed box */
+  border-radius: 10px;
+}
+
+
+/* --- PUBLICATION BOX --- */
+.research-right {
+  flex: none;
+  width: 520px;              /* same width as image column */
+  background-color: #f7f7f7;
+  padding: 25px 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.pub-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #000;
+  font-style: normal;
+}
+
+.pub-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+
+}
+
+.pub-list li {
+  margin-bottom: 18px;
+  color: #333;
+
+}
+
+.pub-list strong {
+  font-weight: 600;          /* Makes paper title bold */
+  color: #000;               /* Black for contrast */
+}
+
+.pub-journal {
+  font-style: normal;        /* Removes italics */
+  font-size: 16px;
+  color: #666;
+  text-decoration: none;
+}
+
+.pub-journal:hover {
+  text-decoration: underline; /* Nice hover effect */
+}
+
+
+
+/* Make the first research text span full width now that image is below */
+.research-section .content .text-section {
+  max-width: 100%;
+}
+
+.research-section:nth-of-type(2) .research-grid {
+  flex-direction: row-reverse;
+}
+
+.research-section:nth-of-type(2) {
+  margin-top: 50px; /* Adjust the spacing as you like */
+}
+
+
+
+
+
+
+    /* =============================
+       FOOTER
+    ============================== */
+    .final-section {
+  background-color: #f5f5f5;
+  width: 100vw;                  /* span the entire viewport */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;            /* neutralize centering */
+  margin-right: -50vw;
+  padding: 40px 0;
+  margin-top: 60px;
+
+}    
+
+    .final-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .left-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .lab-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .lab-logo {
+      width: 60px;
+      height: auto;
+    }
+
+    .lab-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lab-name2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .lab-subtitle {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #1a1a1a;
+    }
+
+    .building-name {
+      font-size: 14px;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: auto;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .social-icons img:hover {
+      opacity: 0.7;
+    }
+
+    .logo-container2 img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .banner-image {
+        min-height: 45vh;
+      }
+      .banner-bottom {
+        min-height: 35vh;
+      }
+      .banner-text h1 {
+        font-size: 2.6rem;
+      }
+      .banner-text h2 {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <a href="https://study.unimelb.edu.au/">
+        <img src="images/UnimelbForTop.png" alt="University of Melbourne Logo" class="top-logo">
+      </a>
+      <h1 class="lab-title">HINDE LAB</h1>
+    </div>
+    <nav>
+      <a href="index6.html">Home</a>
+      <a href="research2.html">Research</a>
+      <a href="methods.html">Methods</a>
+      <a href="team.html">Team</a>
+      <a href="publications.html"">Publications</a>
+      <a href="join.html">Join Us</a>
+    </nav>
+  </header>
+
+  <!-- BANNER -->
+<section class="banner-section">
+  <div class="banner-image">
+    <img src="images/ForResearch7.png" alt="Research Banner">
+    <div class="banner-text">
+      <h1>Research</h1>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="research-section">
+    <p class="research-text">Our research focuses on the cell nucleus, where genome function is governed by the dynamic interplay between nuclear architecture and protein navigation. To study these processes in living cells, we develop methods based on fluorescence lifetime and anisotropy imaging microscopy (FLIM and FAIM) of Förster resonance energy transfer (FRET), coupled with fluorescence correlation spectroscopy (FCS). These methods allow us to bypass the diffraction limit of optical microscopy and quantify chromatin structure at the nanoscale while tracking protein diffusion with single-molecule resolution.</p>
+
+<!-- === Corrected Section === -->
+<div class="content">
+  <div class="text-section">
+  <p class="bold-title">Architectural organisation of the cell nucleus</p>
+  <p class="research-text">
+    We aim to understand how the two metres of DNA that underpin the human genome are packaged into a 3D chromatin network that fits within the tiny volume of a cell nucleus, and how sub-micron to nanoscale rearrangements in this framework regulate access to the DNA template. To investigate this, we: (1) spatiotemporally map chromatin accessibility via fluorescence fluctuation spectroscopy (FFS) of inert fluorescent tracers of different sizes, and (2) quantify FRET interactions between fluorescently labelled histones (H2B) and architectural proteins (HP1) using FLIM and FAIM. This allows us to study the role of chromatin structure and dynamics in live-cell genome function down to the level of nucleosome proximity.
+  </p>
+
+  <!-- Image + Publications layout -->
+  <div class="research-grid">
+    <div class="research-left">
+      <img src="images/ForResearch6.png" alt="Research Image" class="research-main-image">
+    </div>
+
+    <div class="research-right">
+      <h2 class="pub-title">Relevant Publications</h2>
+      <ul class="pub-list">
+        <li>
+         Lou J., Deng Q., Zhang X., et al.  
+         <strong>Heterochromatin protein 1 alpha (HP1α) undergoes a monomer to dimer transition that opens and compacts live cell genome architecture.</strong> 
+          <a href="https://doi.org/10.1093/nar/gkae720" target="_blank" class="pub-journal"> Nucleic Acids Res. (2024) </a>
+        </li>
+
+        <li>
+          Solano A., Lou J., Scipioni L., et al.  
+          <strong>Radial pair correlation of molecular brightness fluctuations maps protein diffusion as a function of oligomeric state within live-cell nuclear architecture.</strong>  
+          <a href="https://doi.org/10.1016/j.bpj.2022.04.030" target="_blank" class="pub-journal">Biophysical Journal (2022)</a>
+        </li>
+
+        <li>
+          Lou J., Scipioni L., Wright B.K. & Hinde E.
+          <strong>Phasor histone FLIM-FRET microscopy quantifies spatiotemporal rearrangement of chromatin architecture during the DNA damage response.</strong>  
+          <a href="https://doi.org/10.1073/pnas.1814965116" target="_blank" class="pub-journal">PNAS USA (2019) </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- === End Corrected Section === -->
+
+
+<div class="research-section">
+
+    <div class="content">
+        <div class="text-section">
+            <p class="bold-title">Protein Navigation of the Nuclear Landscape</p>
+            <p class="research-text">
+                We investigate how DNA-binding proteins navigate the nucleus and how protein–protein interactions regulate DNA target search. To do so, we are developing fluorescence fluctuation-based analyses to extract nuclear trafficking events directly from live-cell microscopy data. Using spatiotemporal correlation functions, we map protein local diffusion to long-range nuclear transport, while resolving how these dynamics shift with oligomeric state or complex formation via use of spectrally distinct fluorescent ligands. These measurements are compatible with single-, dual-, or triple-channel CLSM or TIRF microscopy time series and allow us to determine how DNA repair factors navigate nuclear architecture to coordinate double-strand break resolution, and how transcription factors use protein stoichiometry to regulate DNA target search and gene expression.
+            </p>
+        </div>
+
+    <div class="research-grid">
+      <div class="research-left">
+        <img src="images/Picture7.png" alt="Research Image2" class="research-main-image">
+      </div>
+
+      <div class="research-right">
+        <h2 class="pub-title">Relevant Publications</h2>
+        <ul class="pub-list">
+          <li>
+            Hinde E., Thammasiraphop K., Duong H. et al.
+            <strong>Pair correlation microscopy reveals the role of nanoparticle shape in intracellular transport and site of drug release.</strong> 
+          <a href="https://doi.org/10.1038/nnano.2016.160" target="_blank" class="pub-journal"> Nature Nanotech. (2017) </a>
+          </li>
+
+          <li>
+            Lou J., Priest D.G., Solano A., et al.
+            <strong>Spatiotemporal dynamics of 53BP1 dimer recruitment to a DNA double strand break.</strong>
+          <a href="https://doi.org/10.1038/s41467-020-19504-3" target="_blank" class="pub-journal">Nat Commun. (2020) </a>
+          </li>
+
+          <li>
+            Sanchez-Velasquez J., Solano A., Digman M.A., et al
+            <strong>Pair correlation microscopy of intracellular molecular transport.</strong>
+          <a href="https://doi.org/10.1038/s41596-024-01097-6" target="_blank" class="pub-journal">Nat Protoc. (2025) </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- FOOTER -->
+  <section class="final-section">
+    <div class="final-container">
+      <div class="left-container">
+        <div class="lab-header">
+          <img src="images/lablogo.png" alt="Lab Logo" class="lab-logo">
+          <div class="lab-title">
+            <h2 class="lab-name2"><strong>Hinde Lab</strong></h2>
+            <h3 class="lab-subtitle">Laboratory for Cellular Biophysics</h3>
+          </div>
+        </div>
+        <div class="contact-info">
+          <h3 class="building-name">David Caro Building</h3>
+          <p>Parkville VIC 3010<br>University of Melbourne<br>Australia</p>
+          <div class="social-icons">
+            <a href="https://x.com/Liz_Hinde_" target="_blank">
+              <img src="images/x-logo.png" alt="X (Twitter) Logo">
+            </a>
+            <a href="https://bsky.app/profile/lizhinde.bsky.social" target="_blank">
+              <img src="images/bluesky-logo.png" alt="Bluesky Logo">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="logo-container2">
+        <img src="images/Unilogo.png" alt="University Logo">
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+</html>
