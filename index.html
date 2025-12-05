@@ -1,1 +1,441 @@
-# BiophysicsLab.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hinde Lab at Unimelb</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================
+       GLOBAL STYLES
+    ============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+    }
+
+    /* =============================
+       HEADER (Fixed)
+    ============================== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #000;
+      padding: 20px 50px;
+      position: fixed;        /* fixed at top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;          /* stays above everything */
+    }
+
+    /* Left side: logo + lab title */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .top-logo {
+      height: 48px;
+      width: auto;
+    }
+
+    .lab-title {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* Navigation links */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #007acc;
+      text-decoration: underline;
+    }
+
+    /* =============================
+       BANNER SECTION
+    ============================== */
+    .banner-section {
+      padding-top: 100px; /* creates space below header but keeps it black */
+      margin-top: 0; /* prevents white gap */
+      background-color: #000; /* ensures the top is solid black */
+      width: 100%;
+      background-color: #000;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .banner-image {
+      width: 100vw;
+      height: 35vh;
+      position: relative;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    .banner-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+ 
+    /* Bottom dark section */
+    .banner-bottom {
+      width: 100%;
+      background-color: #000;
+      height: 52vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px 50px;
+    }
+
+    .banner-text {
+      color: white;
+      max-width: 90%;
+    }
+
+    .banner-text h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.8rem;
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .banner-text h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 200;
+      color: #e0e0e0;
+      margin-top: 4px;
+      margin-bottom: 40px;
+    }
+
+
+/* === Fade + Slide-up Animation for Banner Text === */
+.banner-text h1,
+.banner-text h2 {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUpSmooth 1.6s ease-out forwards;
+}
+
+/* Title appears first */
+.banner-text h1 {
+  animation-delay: 0.3s;
+}
+
+/* Subtitle follows slightly after */
+.banner-text h2 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeUpSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =============================
+   CENTERED LINE + JUSTIFIED TEXT
+============================= */
+.intro-line-section {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;     /* stack vertically */
+  justify-content: center; /* centers the block horizontally */
+  align-items: center;
+  padding: 120px 20px;
+  width: 100%;
+  text-align: center;
+
+}
+
+.intro-line-container {
+  display: flex;
+  align-items: stretch; /* makes line match text height */
+  justify-content: center;
+  gap: 35px;
+  max-width: 900px; /* controls total width of the text + line block */
+  width: 80%; /* ensures it scales nicely */
+  margin: 0 auto; /* keeps it perfectly centered */
+}
+
+.vertical-line {
+  width: 2px;
+  background-color: #333; /* softer minimalist gray */
+  flex-shrink: 0;
+}
+
+.intro-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #333;
+  line-height: 1.6;
+  text-align: center;
+  text-justify: inter-word;
+  margin: 0;
+}
+
+
+
+.join-button {
+  background-color: #c08b83;
+  color: white;
+  font-size: 1.1rem;
+  padding: 20px 80px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  margin-top: 150px;
+  margin-bottom: 100px;
+  display: inline-block;
+}
+
+    .join-button:hover {
+      background-color: #a06c66;
+    }
+
+
+
+
+    /* =============================
+       FOOTER
+    ============================== */
+    .final-section {
+      background-color: #f5f5f5;
+      padding: 40px 0;
+    }
+
+    .final-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .left-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .lab-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .lab-logo {
+      width: 60px;
+      height: auto;
+    }
+
+    .lab-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lab-name2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .lab-subtitle {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #1a1a1a;
+    }
+
+    .building-name {
+      font-size: 14px;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: auto;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .social-icons img:hover {
+      opacity: 0.7;
+    }
+
+    .logo-container2 img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .banner-image {
+        min-height: 45vh;
+      }
+      .banner-bottom {
+        min-height: 35vh;
+      }
+      .banner-text h1 {
+        font-size: 2.6rem;
+      }
+      .banner-text h2 {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <a href="https://study.unimelb.edu.au/">
+        <img src="images/UnimelbForTop.png" alt="University of Melbourne Logo" class="top-logo">
+      </a>
+      <h1 class="lab-title">HINDE LAB</h1>
+    </div>
+    <nav>
+      <a href="index6.html">Home</a>
+      <a href="research2.html">Research</a>
+      <a href="methods.html">Methods</a>
+      <a href="team.html">Team</a>
+      <a href="publications.html"">Publications</a>
+      <a href="join.html">Join Us</a>
+    </nav>
+  </header>
+
+  <!-- BANNER -->
+  <section class="banner-section">
+    <div class="banner-image">
+    <img src="images/newBanner6.png" alt="Hinde Lab Banner">
+    </div>
+
+    <div class="banner-bottom">
+      <div class="banner-text">
+        <h1>Welcome to the <h1> Laboratory for Cellular Biophysics</h1>
+        <h2>School of Physics, University of Melbourne</h2>
+      </div>
+    </div>
+  </section>
+
+<!-- MAIN CONTENT -->
+<section class="intro-line-section">
+  <div class="intro-line-container">
+    <div class="vertical-line"></div>
+    <p class="intro-text">
+      The Laboratory for Cellular Biophysics develops optical microscopy methods based on fluorescence lifetime, anisotropy and correlation spectroscopy to spatiotemporally map the cell nucleus and uncover the role of nuclear architecture in genome function.
+    </p>
+  </div>
+
+<a href="join.html" class="join-button">Join Us!</a>
+</section>
+
+
+
+  <!-- FOOTER -->
+  <section class="final-section">
+    <div class="final-container">
+      <div class="left-container">
+        <div class="lab-header">
+          <img src="images/lablogo.png" alt="Lab Logo" class="lab-logo">
+          <div class="lab-title">
+            <h2 class="lab-name2"><strong>Hinde Lab</strong></h2>
+            <h3 class="lab-subtitle">Laboratory for Cellular Biophysics</h3>
+          </div>
+        </div>
+        <div class="contact-info">
+          <h3 class="building-name">David Caro Building</h3>
+          <p>Parkville VIC 3010<br>University of Melbourne<br>Australia</p>
+          <div class="social-icons">
+            <a href="https://x.com/Liz_Hinde_" target="_blank">
+              <img src="images/x-logo.png" alt="X (Twitter) Logo">
+            </a>
+            <a href="https://bsky.app/profile/lizhinde.bsky.social" target="_blank">
+              <img src="images/bluesky-logo.png" alt="Bluesky Logo">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="logo-container2">
+        <img src="images/Unilogo.png" alt="University Logo">
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
