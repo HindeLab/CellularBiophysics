@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hinde Lab at Unimelb</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================
+       GLOBAL STYLES
+    ============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+    }
+
+
+    /* =============================
+       HEADER (Fixed)
+    ============================== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #000;
+      padding: 20px 50px;
+      position: fixed;        /* fixed at top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;          /* stays above everything */
+    }
+
+    /* Left side: logo + lab title */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .top-logo {
+      height: 48px;
+      width: auto;
+    }
+
+    .lab-title {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* Navigation links */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #007acc;
+      text-decoration: underline;
+    }
+
+
+    /* =============================
+       BANNER SECTION
+    ============================== */
+    .banner-section {
+      padding-top: 0px; /* creates space below header but keeps it black */
+      margin-top: 80px; /* prevents white gap */
+      width: 100%;
+      background-color: #000;
+      text-align: center;
+      overflow: hidden;
+  position: relative;
+
+    }
+
+    /* --- Top image (narrower vertically) --- */
+    .banner-image {
+      width: 100%;
+      height: 30vh; /* reduced height so it looks elegant and not too tall */
+      position: relative;
+      overflow: hidden;
+    }
+
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* ensures it fills space perfectly */
+  object-position: center;
+  display: block;
+}
+
+/* =============================
+   RESEARCH TITLE ABOVE BANNER
+============================= */
+/* Text overlay */
+.banner-text {
+  position: absolute;
+  top: 50%;               /* centers vertically */
+  left: 50%;              /* centers horizontally */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.banner-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUpResearch 1.3s ease-out forwards;
+  animation-delay: 0.4s;  /* optional delay so it feels smoother */
+}
+
+@keyframes fadeUpResearch {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* 👇 NEW: make the background after the banner fully white */
+.banner-section + .research-section,
+.banner-section + * {
+  background-color: #fff !important;
+}
+
+
+
+
+.equipment-section {
+  max-width: 1150px;     /* match page width */
+  margin: 80px auto 80px auto;   /* space above + centered block */
+  padding: 0 20px;        /* small side padding for laptops */
+}
+
+.equipment-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  text-align: left;      /* this keeps it left aligned */
+}
+
+
+.year {
+  max-width: 1150px;     /* match page width */
+  margin: 80px auto 80px auto;   /* space above + centered block */
+  padding: 0 20px;        /* small side padding for laptops */
+}
+
+.year h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  text-align: left;      /* this keeps it left aligned */
+}
+
+
+/* ================================
+   PUBLICATIONS SECTION
+================================ */
+
+.publications-section {
+  max-width: 1150px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.publications-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+/* Year headers */
+.pub-year {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 50px 0 20px 0;
+  color: #1a1a1a;
+}
+
+/* Individual publication block */
+.pub-item {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #000;
+  margin-bottom: 22px;
+  text-align: justify;
+}
+
+/* DOI link styling */
+.pub-item a {
+  color: #007acc;         /* blue but soft */
+  text-decoration: none;
+}
+
+.pub-item a:hover {
+  text-decoration: underline;
+}
+
+/* Journal + year muted grey */
+.pub-meta {
+  color: #444;
+  font-size: 17px;
+}
+
+/* Bold your name */
+.pub-item strong {
+  font-weight: 700;
+  color: #000;
+}
+
+
+
+    /* =============================
+       FOOTER
+    ============================== */
+    .final-section {
+  background-color: #f5f5f5;
+  width: 100vw;                  /* span the entire viewport */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;            /* neutralize centering */
+  margin-right: -50vw;
+  padding: 40px 0;
+  margin-top: 60px;
+
+}    
+
+    .final-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .left-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .lab-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .lab-logo {
+      width: 60px;
+      height: auto;
+    }
+
+    .lab-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lab-name2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .lab-subtitle {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #1a1a1a;
+    }
+
+    .building-name {
+      font-size: 14px;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: auto;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .social-icons img:hover {
+      opacity: 0.7;
+    }
+
+    .logo-container2 img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .banner-image {
+        min-height: 45vh;
+      }
+      .banner-bottom {
+        min-height: 35vh;
+      }
+      .banner-text h1 {
+        font-size: 2.6rem;
+      }
+      .banner-text h2 {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <a href="https://study.unimelb.edu.au/">
+        <img src="images/UnimelbForTop.png" alt="University of Melbourne Logo" class="top-logo">
+      </a>
+      <h1 class="lab-title">HINDE LAB</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research2.html">Research</a>
+      <a href="methods.html">Methods</a>
+      <a href="team.html">Team</a>
+      <a href="publications.html">Publications</a>
+      <a href="join.html">Join Us</a>
+    </nav>
+  </header>
+
+  <!-- BANNER -->
+<section class="banner-section">
+  <div class="banner-image">
+    <img src="images/forPubl2.png" alt="Research Banner">
+    <div class="banner-text">
+      <h1>Publications</h1>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="equipment-section">
+  <h2>Selected publications</h2>
+</div>
+
+
+<div class="publications-section">
+ 
+ <div class="pub-year">2025</div>
+
+
+<div class="pub-item">
+  Sanchez-Velasquez, J., Solano, A., Digman, M.A., Gratton E., Cardarelli, F. & <strong>Hinde E.</strong> Pair correlation microscopy of intracellular molecular transport. <span class="pub-meta">Nat Protoc. 2025. 10: 1651–1677.</span>
+<span class="doi">DOI: 
+  <a class="doi-link" href="https://doi.org/10.1038/s41596-024-01097-6" target="_blank">
+    10.1038/s41596-024-01097-6
+  </a>
+</span>
+  </div>
+
+  <div class="pub-year">2024</div>
+
+
+  <div class="pub-item">
+    Lou J., Deng Q., Zhang, X., Bell C.C., Das A.B., Bediaga N.G., Zlatic C.O., Johanson T.M., Allan R.S., Griffin M.D.W., Paradkar P., Harvey K.F., Dawson M.A. & <strong>Hinde E.</strong> Heterochromatin protein 1 alpha (HP1α) undergoes a monomer to dimer transition that opens and compacts live cell genome architecture. <span class="pub-meta">Nucleic Acids Research 2024. 52(18): 10918-10933.</span>
+ <span class="doi">DOI: 
+  <a class="doi-link" href="https://doi.org/10.1093/nar/gkae720" target="_blank">10.1093/nar/gkae720
+</a>
+</span>
+  </div>
+
+  <div class="pub-item">
+    Lian Z., Solano A., Lou J. & <strong>Hinde E.</strong> Histone FRET reports the spatial heterogeneity in nanoscale chromatin architecture that is imparted by the epigenetic landscape at the level of single foci in an intact cell nucleus. <span class="pub-meta">Chromosoma 2024. 133(1): 5-14.</span>
+ <span class="doi">DOI: 
+  <a class="doi-link" href="https://doi.org/10.1007/s00412-024-00815-z" target="_blank">10.1007/s00412-024-00815-z
+</a>
+</span>
+  </div>
+
+  <div class="pub-item">
+    Mehl B.P., Vairaprakash P., Li L., <strong>Hinde E.</strong>, MacNevin C.J., Hsu C., Gratton E., Liu B. & Hahn K.M. Live-cell biosensors based on the fluorescence lifetime of environment-sensing dyes. <span class="pub-meta">Cell Reports Methods 2024. 4(3): 100734.</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1016/j.crmeth.2024.100734" target="_blank">10.1016/j.crmeth.2024.100734
+</a>
+</span>
+  </div>
+
+  <div class="pub-year">2023</div>
+                       
+  <div class="pub-item">
+   Owyong T.C.,  O’Shea R., Lee M., White J.M., Donnelly P.S., <strong>Hinde E.</strong>, et al. A General Fluorescence-Based Method for Quantifying and Mapping Biomolecular Polarity In Vitro and In Cells. <span class="pub-meta">bioRxiv 2023.</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1101/2023.02.07.526546" target="_blank">10.1101/2023.02.07.526546
+</a>
+</span>
+  </div>
+                                                                                                   
+  <div class="pub-year">2022</div>
+                                                                                    
+   <div class="pub-item">
+   Solano A., Lou J., Scipioni L., Gratton E. & <strong>Hinde E.</strong>. Radial pair correlation of molecular brightness fluctuations maps protein diffusion as a function of oligomeric state within live-cell nuclear architecture. <span class="pub-meta">Biophysical Journal 2022. 122(11): 2152-2167.</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1016/j.bpj.2022.04.030" target="_blank">10.1016/j.bpj.2022.04.030
+</a>
+</span>
+  </div>                                                                                         
+                                                      
+   <div class="pub-item">
+   Mitrentsi, I., Lou J., Kerjouan A., Verigos J., Reina-San-Martin B., <strong>Hinde E.</strong>  & Soutoglou E. Heterochromatic repeat clustering imposes a physical barrier on homologous recombination to prevent chromosomal translocations. <span class="pub-meta">Mol Cell. 2022. 82(11): 2132–2147.e6</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1016/j.molcel.2022.03.033" target="_blank">10.1016/j.molcel.2022.03.033
+</a>
+</span>
+  </div>
+                                                                                       
+                                                                          
+   <div class="pub-item">
+ Deore P., Wanigasuriya I., Tsang Min Ching S.J., Brumley D.R., van Oppen M.J.H., Blackall L.L. & <strong>Hinde E.</strong>. Fluorescence lifetime imaging microscopy (FLIM): a non-traditional approach to study host-microbial symbioses. <span class="pub-meta">Micriobiol Aust. 2022. 43(1): 22-27</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1071/MA22008" 
+target="_blank">10.1071/MA22008
+</a>
+</span>
+  </div>
+                                                                                       
+  <div class="pub-year">2021</div>
+                                                                                 
+    <div class="pub-item">
+ Lou J., Solano A., Liang Z. & <strong>Hinde E.</strong>. Phasor Histone FLIM-FRET Microscopy Maps Nuclear-Wide Nanoscale Chromatin Architecture With Respect to Genetically Induced DNA Double-Strand Breaks. <span class="pub-meta">Front Genet. 2021. 12: 770081.</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.3389/fgene.2021.770081" 
+target="_blank">10.3389/fgene.2021.770081
+</a>
+</span>
+  </div>
+       
+               
+     <div class="pub-item">
+ Priest D.J., Bernardini A., Lou J., Mantovani R.  & <strong>Hinde E.</strong>. Live cell dynamics of the NF-Y transcription factor. <span class="pub-meta">Sci Rep. 2021. 11: 10992</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1038/s41598-021-90081-1" 
+target="_blank">10.1038/s41598-021-90081-1
+</a>
+</span>
+  </div>
+    
+               
+   <div class="pub-item">
+ Wesemann L., Rickett J., Song J., Lou J., <strong>Hinde E.</strong>, Davis T.J. & Roberts A. Nanophotonics enhanced coverslip for phase imaging in biology. <span class="pub-meta">Light Sci Appl. 2021. 10: 98</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1038/s41377-021-00540-7" 
+target="_blank">10.1038/s41377-021-00540-7
+</a>
+</span>
+  </div>
+               
+
+     <div class="pub-item">
+ Palmer C.S., Lou J., Kouskousis B., Pandzic E., Anderson A.J., Kang Y., <strong>Hinde E.</strong> & Stojanovski D. Super-resolution microscopy reveals the arrangement of inner membrane protein complexes in mammalian mitochondria. <span class="pub-meta">J Cell Sci. 2021. 134(13): jcs252197.</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1242/jcs.252197" 
+target="_blank">10.1242/jcs.252197
+</a>
+</span>
+  </div>    
+               
+  <div class="pub-year">2020</div>
+               
+     <div class="pub-item">
+Lou J., Priest D.G., Solano A., Kerjouan A. & <strong>Hinde E.</strong>. Spatiotemporal dynamics of 53BP1 dimer recruitment to a DNA double strand break. <span class="pub-meta">Nat Commun. 2020. 11(1): 5776.</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1038/s41467-020-19504-3" 
+target="_blank">10.1038/s41467-020-19504-3
+</a>
+</span>
+  </div>  
+              
+               
+     <div class="pub-item">
+ Liang Z., Lou J., Scipioni L., Gratton E. & <strong>Hinde E.</strong>. Quantifying nuclear wide chromatin compaction by phasor analysis of histone Förster resonance energy transfer (FRET) in frequency domain fluorescence lifetime imaging microscopy (FLIM) data. <span class="pub-meta">Data Brief 2020. 30: 105401.</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1016/j.dib.2020.105401" 
+target="_blank">10.1016/j.dib.2020.105401
+</a>
+</span>
+  </div>  
+               
+           
+  <div class="pub-year">2019</div>
+               
+
+     <div class="pub-item">
+ Priest D.J., Solano A., Lou J. & <strong>Hinde E.</strong>. Fluorescence fluctuation spectroscopy: an invaluable microscopy tool for uncovering the biophysical rules for navigating the nuclear landscape. <span class="pub-meta">Biochem Soc Trans. 2019. 47(4):1117-1129. </span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1042/BST20180604" 
+target="_blank">10.1042/BST20180604
+</a>
+</span>
+  </div>  
+               
+              
+      <div class="pub-item">
+ Lou J., Khor J., Priest D. & <strong>Hinde E.</strong>. Fluorescence Fluctuation Spectroscopy Reveals Double Strand Break Recruitment of 53BP1 Dimers and Assembly into Higher-Order Oligomers at the DNA Repair Locus. <span class="pub-meta">Biophysical Journal. 2019. 116(3)</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1016/j.bpj.2018.11.156" 
+target="_blank">10.1016/j.bpj.2018.11.156
+</a>
+</span>
+  </div>  
+   
+              
+      <div class="pub-item">
+ Lou J., Scipioni L., Wright B.K. & <strong>Hinde E.</strong>. Phasor histone FLIM-FRET microscopy quantifies spatiotemporal rearrangement of chromatin architecture during the DNA damage response. <span class="pub-meta">Proceedings of the National Academy of Sciences. 2019. 116(15): 7323-7332</span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1073/pnas.1814965116" 
+target="_blank">10.1073/pnas.1814965116
+</a>
+</span>
+  </div>                 
+
+  <div class="pub-year">2017</div>
+               
+
+     <div class="pub-item">
+ <strong>Hinde E.</strong>, Thammasiraphop K., Duong H.T.T., Yeow J., Karagoz B., Boyer C., Gooding J. & Gaus K. Pair correlation microscopy reveals the role of nanoparticle shape in intracellular transport and site of drug release. <span class="pub-meta">Nature Nanotech. 2017. 12: 81–89. </span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1038/nnano.2016.160" 
+target="_blank">10.1038/nnano.2016.160
+</a>
+</span>
+  </div> 
+         
+  <div class="pub-year">2016</div>
+               
+
+     <div class="pub-item">
+ <strong>Hinde E.</strong>, Pandžić E., Yang Z., Ng I.H.W., Jans D.A., Bogoyevitch M.A., Gratton E. & Gaus K. Quantifying the dynamics of the oligomeric transcription factor STAT3 by pair correlation of molecular brightness. <span class="pub-meta">Nat Commun. 2016. 7: 11047. </span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1038/ncomms11047" 
+target="_blank">10.1038/ncomms11047
+</a>
+</span>
+  </div>               
+               
+  <div class="pub-year">2015-2014</div>
+               
+     
+      <div class="pub-item">
+ <strong>Hinde E.</strong>, Cardarelli F. & Gratton E. Spatiotemporal regulation of Heterochromatin Protein 1-alpha oligomerization and dynamics in live cells. <span class="pub-meta">Sci Rep. 2015. 5: 12001. </span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1038/srep12001" 
+target="_blank">10.1038/srep12001
+</a>
+</span>
+  </div> 
+                
+               
+       <div class="pub-item">
+ <strong>Hinde E.</strong>, Kong X., Yokomori K. & Gratton E. Chromatin dynamics during DNA repair revealed by pair correlation analysis of molecular flow in the nucleus. <span class="pub-meta">Biophys J. 2014. 107(1): 55-65. </span>
+ <span class="doi">DOI: 
+   <a class="doi-link" href="https://doi.org/10.1016/j.bpj.2014.05.027" 
+target="_blank">10.1016/j.bpj.2014.05.027
+</a>
+</span>
+  </div>
+
+
+
+
+</div>
+
+
+  <!-- FOOTER -->
+  <section class="final-section">
+    <div class="final-container">
+      <div class="left-container">
+        <div class="lab-header">
+          <img src="images/lablogo.png" alt="Lab Logo" class="lab-logo">
+          <div class="lab-title">
+            <h2 class="lab-name2"><strong>Hinde Lab</strong></h2>
+            <h3 class="lab-subtitle">Laboratory for Cellular Biophysics</h3>
+          </div>
+        </div>
+        <div class="contact-info">
+          <h3 class="building-name">David Caro Building</h3>
+          <p>Parkville VIC 3010<br>University of Melbourne<br>Australia</p>
+          <div class="social-icons">
+            <a href="https://x.com/Liz_Hinde_" target="_blank">
+              <img src="images/x-logo.png" alt="X (Twitter) Logo">
+            </a>
+            <a href="https://bsky.app/profile/lizhinde.bsky.social" target="_blank">
+              <img src="images/bluesky-logo.png" alt="Bluesky Logo">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="logo-container2">
+        <img src="images/Unilogo.png" alt="University Logo">
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+</html>
