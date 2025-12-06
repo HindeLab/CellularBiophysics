@@ -143,24 +143,24 @@
         }
 
         .description1 {
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 20px;
+            line-height: 1.8;
             color: #333;
             margin-bottom: 50px;
             text-align: justify;
         }
 
         .role1 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600; /* Semibold */
             margin-top: 15px;
         }
 
         .role-description1 {
             margin-top: 15px;
-            font-size: 18px;
+            font-size: 20px;
             color: #444;
-            line-height: 1.6;
+            line-height: 1.8;
             text-align: justify; /* Justifies the text */
             margin-bottom: 20px;
 
@@ -384,6 +384,109 @@
         font-size: 1.05rem;
       }
     }
+
+
+
+/* =============================
+   MOBILE RESPONSIVE – JOIN PAGE
+============================= */
+@media (max-width: 600px) {
+
+  /* ----- HEADER ----- */
+  .header {
+    padding: 14px 18px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lab-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.12em;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
+  .top-logo {
+    height: 38px;
+  }
+
+  /* ----- HERO ----- */
+  .background {
+    height: 55vh;
+    padding: 0 20px;
+  }
+
+  .background h1 {
+    font-size: 2.2rem;
+    white-space: normal;
+    width: 100%;
+    animation: none;   /* smoother on phones */
+  }
+
+  /* ----- JOIN TEXT ----- */
+  .container1 {
+    padding: 0 18px;
+  }
+
+  .section-title1 {
+    font-size: 1.9rem;
+  }
+
+  .description1,
+  .role1,
+  .role-description1 {
+    font-size: 1rem;
+    line-height: 1.55;
+    text-align: left;
+  }
+
+  /* ----- CONTACT SECTION ----- */
+  .contact-inner {
+    flex-direction: column;
+  }
+
+  .contact-left {
+    width: 100%;
+    padding: 35px 18px;
+  }
+
+  .contact-right {
+    width: 100%;
+  }
+
+  .contact-right img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ----- FOOTER ----- */
+  .final-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .left-container {
+    align-items: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+}
+
+
+    
   </style>
 </head>
 
@@ -509,4 +612,5 @@
 
 </body>
 </html>
+
 
