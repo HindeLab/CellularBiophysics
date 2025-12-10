@@ -405,6 +405,8 @@
   .banner-text h1 {
     font-size: 2.4rem;
     line-height: 1.2;
+    margin-top: 0;     
+
   }
 
   .banner-text h2 {
@@ -412,6 +414,22 @@
     line-height: 1.2;
 
   }
+
+
+  .title-line-1,
+  .title-line-2 {
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .title-line-1::after {
+    content: " ";   /* visually joins the lines */
+  }
+
+  .title-line-2 {
+    display: inline;
+  }
+}
 
   .intro-line-container {
     flex-direction: column;
