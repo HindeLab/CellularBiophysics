@@ -366,14 +366,21 @@
 #banner-img { content: url("images/MainBanner_phone3.png"); 
              object-fit: contain; 
             } /* Reduce space between banner image and lab name on mobile */ 
-  .banner-image { 
-    height: 20vh; 
-  } 
+ 
+.banner-image {
+  min-height: auto !important;
+  height: 20vh !important;
+  max-height: none !important;
+} 
+  
   .banner-bottom { 
-    height: auto; 
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
     padding-top: 10px; 
     padding-bottom: 10px; 
   } 
+
   .banner-text h1 { 
     margin-bottom: 6px; /* tighten title spacing */ 
   }
