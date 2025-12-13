@@ -17,7 +17,7 @@ is licensed under the MIT License. See the LICENSE file for details.
 ### Images and media
 © 2025 Hinde Lab, University of Melbourne
 
-All images, figures, microscopy data, schematics, and graphical media
+All images, figures, schematics, and graphical media
 on this website are licensed under the
 Creative Commons Attribution–NonCommercial–NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
 
@@ -26,6 +26,7 @@ or redistribute it without explicit written permission from the copyright holder
 
 Full license text:
 https://creativecommons.org/licenses/by-nc-nd/4.0/
+
 
 
 
